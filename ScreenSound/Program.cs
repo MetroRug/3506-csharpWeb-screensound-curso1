@@ -4,18 +4,25 @@ using ScreenSound.Modelos;
 
 try
 {
-    var connection = new Connection();
-    var listaArtistas = connection.Listar();
+    var artistaDAL = new ArtistasDAL();
+    //artistaDAL.Adicionar(new Artista("Foo Fighters", "Com certeza uma das bandas ja feitas"));
 
-    foreach ( var artista in listaArtistas)
+    artistaDAL.Atualizar(new Artista("Foo Fighters", "Com certeza uma das outras bandas ja feitas"));
+
+    var listaArtistas = artistaDAL.Listar();
+
+    foreach (var artista in listaArtistas)
     {
         Console.WriteLine(artista);
     }
 }
-catch(Exception ex)
+catch (Exception ex)
 {
-    Console.WriteLine(ex.Message); 
+    Console.WriteLine(ex.Message);
 }
+
+
+
 
 return;
 
